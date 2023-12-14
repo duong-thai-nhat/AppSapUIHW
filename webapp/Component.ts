@@ -1,6 +1,8 @@
 import UIComponent from "sap/ui/core/UIComponent";
 import models from "./model/models";
 import Device from "sap/ui/Device";
+import JSONModel from "sap/ui/model/json/JSONModel";
+import ResourceModel from "sap/ui/model/resource/ResourceModel";
 
 /**
  * @namespace myapp
@@ -21,6 +23,24 @@ export default class Component extends UIComponent {
 
 		// create the views based on the url/hash
 		this.getRouter().initialize();
+
+		// set data model
+		const oData = {
+            recipient : {
+               name : "World"
+            }
+         };
+         const oModel = new JSONModel(oData);
+         this.setModel(oModel);
+
+         // set i18n model
+         const i18nModel = new ResourceModel({
+            bundleName: "myapp.i18n.i18n"
+         });
+         this.setModel(i18nModel, "i18n");
+
+		 // create the views based on the url/hash
+			this.getRouter().initialize();
 	}
 
 	/**

@@ -29,6 +29,14 @@
 			"async": true,
 			"id": "app"
 		},
+		
+		"resources": {
+		"css": [
+			{
+			"uri": "css/style.css"
+			}
+		]
+		},
 
 		"dependencies": {
 			"minUI5Version": "1.120.2",
@@ -51,6 +59,10 @@
 				"settings": {
 					"bundleName": "myapp.i18n.i18n"
 				}
+			},
+			"invoice": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "Invoices.json"
 			}
 		},
 
@@ -66,14 +78,23 @@
 			"routes": [
 				{
 					"pattern": "",
-					"name": "main",
-					"target": "main"
+					"name": "overview",
+					"target": "overview"
+				},
+				{
+					"pattern": "detail/{invoicePath}",
+					"name": "detail",
+					"target": "detail"
 				}
 			],
 			"targets": {
-				"main": {
-					"viewId": "main",
-					"viewName": "Main"
+				"overview": {
+					"viewId": "overview",
+					"viewName": "Overview"
+				},
+				"detail": {
+					"viewId": "detail",
+					"viewName": "Detail"
 				}
 			}
 		}

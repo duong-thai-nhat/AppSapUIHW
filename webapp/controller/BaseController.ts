@@ -6,11 +6,13 @@ import ResourceModel from "sap/ui/model/resource/ResourceModel";
 import ResourceBundle from "sap/base/i18n/ResourceBundle";
 import Router from "sap/ui/core/routing/Router";
 import History from "sap/ui/core/routing/History";
+import Formatter from "myapp/model/formatter";
 
 /**
  * @namespace myapp.controller
  */
 export default abstract class BaseController extends Controller {
+	public formatter: Formatter = new Formatter()
 	/**
 	 * Convenience method for accessing the component of the controller's view.
 	 * @returns The component of the controller's view
